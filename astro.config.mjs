@@ -1,12 +1,13 @@
-﻿import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  // Site 100% statique : servi directement par le CDN Cloudflare Pages
-  // (ultra rapide, gratuit, aucun Worker requis)
-  output: 'static',
+  // Mode SERVER pour Cloudflare Pages avec fonctionnalités dynamiques
+  output: 'server',
+  adapter: cloudflare(),
   base: '/',
 
   site: 'https://zyatriaglobal.com',
